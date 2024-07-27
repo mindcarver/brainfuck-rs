@@ -19,7 +19,7 @@ impl Interpreter {
         let code = Code::from(data)?;
         let code_len = code.instrs.len();
         let mut pc = 0; // program counter
-        let mut sp = 0; // stack pointer
+        let sp = 0; // stack pointer
 
         loop {
             if pc >= code_len {
@@ -74,7 +74,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let data = std::fs::read(args[1].clone())?;
 
     let mut interpreter = Interpreter::new();
-    interpreter.run(data);
+    let _ = interpreter.run(data);
 
     Ok(())
 }
